@@ -1,7 +1,7 @@
 defmodule Soup do
 
     def enter_select_location_flow() do
-        IO.puts("One moment while I fetch the list of locations...")
+        IO.puts("One moment while I fetch the list of Hale and Hearty locations...")
         case Scraper.get_locations() do
             {:ok, locations} ->
                 {:ok, location} = ask_user_to_select_location(locations)
@@ -49,7 +49,7 @@ defmodule Soup do
     end
 
     def display_soup_list(location) do
-        IO.puts("One moment while I fetch today's soup list for #{location.name}...")
+        IO.puts("One moment while I fetch today's soup list for Hale and Hearty at #{location.name}...")
         case Scraper.get_soups(location.id) do
             {:ok, soups} ->
                 Enum.each(soups, &(IO.puts " - " <> &1))
